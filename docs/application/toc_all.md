@@ -198,7 +198,6 @@
 #### Authentication and Authorization
 ##### [Overview](/application/dotnet/guides/personal/authentication.md)
 ##### [FIDO Universal Authentication Framework](/application/dotnet/guides/personal/fido.md)
-##### [OAuth 2.0](/application/dotnet/guides/personal/oauth.md)
 #### [Calendar](/application/dotnet/guides/personal/calendar.md)
 #### [Contacts](/application/dotnet/guides/personal/contacts.md)
 #### [Phone Number Management](/application/dotnet/guides/personal/phonenumber.md)
@@ -507,8 +506,18 @@
 ## [API Reference](/application/web/api/index.md)
 
 
-## [Samples](/development/sample/web)
+### Personal Data
+#### [Overview](/application/native/guides/personal/overview.md)
+#### [Account Management](/application/native/guides/personal/account.md)
+#### [Data Synchronization](/application/native/guides/personal/data-sync.md)
+#### Authentication and Authorization
+##### [FIDO Universal Authentication Framework](/application/native/guides/personal/fido.md)
+#### [Calendar](/application/native/guides/personal/calendar.md)
+#### [Contacts](/application/native/guides/personal/contacts.md)
+#### [Phone Number Management](/application/native/guides/personal/phonenumber.md)
+#### [Contextual Device Usage History Data](/application/native/guides/personal/context.md)
 
+## [Samples](/development/sample/web)
 
 
 # Native Application
@@ -957,7 +966,6 @@
 #### [Data Synchronization](/application/native/guides/personal/data-sync.md)
 #### Authentication and Authorization
 ##### [FIDO Universal Authentication Framework](/application/native/guides/personal/fido.md)
-##### [OAuth 2.0](/application/native/guides/personal/oauth.md)
 #### [Calendar](/application/native/guides/personal/calendar.md)
 #### [Contacts](/application/native/guides/personal/contacts.md)
 #### [Phone Number Management](/application/native/guides/personal/phonenumber.md)
