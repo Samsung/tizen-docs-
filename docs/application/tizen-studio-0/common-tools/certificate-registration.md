@@ -1,6 +1,6 @@
 # Working with the Certificate Profile
 
-Before installing your application on a device or submitting it to the Tizen Store, it must be signed with a certificate profile. The signature verifies the source of the application and makes sure it has not been tampered with since its publication. A certificate profile is a combination of the certificates used for signing, and it can be created, edited, removed, and set as active with the Certificate Manager. The active certificate profile is used when packaging your application.
+Before installing your application on a device or submitting it to Tizen Store, it must be signed with a certificate profile. The signature verifies the source of the application and makes sure it has not been tampered with since its publication. A certificate profile is a combination of the certificates used for signing, and it can be created, edited, removed, and set as active with the Certificate Manager. The active certificate profile is used when packaging your application.
 
 ## Certificate Profile and Certificates
 
@@ -11,8 +11,7 @@ The certificate profile consists of an author certificate and 1 or 2 distributor
 
 ## Creating a Certificate Profile
 
->**Note**
->
+>[!NOTE]
 >It is recommended to keep your certificates and password safe in the local repo to prevent it from being compromised.
 
 
@@ -99,6 +98,6 @@ To migrate a certificate profile:
    ![Migrating certificate profiles](media/cert_reg_migrate_duplicate.png)
 
 
-## Related Informatioin
+## Related Information
 - Dependencies  
   - Tizen Studio 1.0 and Higher

@@ -1,10 +1,10 @@
 # Running Applications on the Emulator
 
-The Tizen emulator is a tool that reduces the inconvenience of testing the application on a real device, by providing an environment similar to a real device. In other words, if you do not have the real device, you can test on a virtual device with similar features.
+The Tizen Emulator is a tool that reduces the inconvenience of testing the application on a real device, by providing an environment similar to a real device. In other words, if you do not have the real device, you can test on a virtual device with similar features.
 
 Using the Emulator Manager, you can create a variety of environments (different device types) and you can preview the problems during the development process. The emulator provides the actual hardware similar to real device controls, and you can check the application features, such as data processing and user scenarios.
 
-The emulator is based on the open source QEMU project and consists of a virtual CPU, memory, and various peripherals. Currently, the Tizen Studio only supports the x86 machine architecture for guest.
+The emulator is based on the open source QEMU project and consists of a virtual CPU, memory, and various peripherals. Currently, Tizen Studio only supports the x86 machine architecture for guest.
 
 You can use the [Emulator Manager](emulator-manager.md) to create and launch a Virtual Machine (emulator) instance. You can communicate with the emulator instance using the [Smart Development Bridge (SDB)](smart-development-bridge.md).
 
@@ -29,7 +29,7 @@ To start the emulator and run an application:
 2. Select the emulator instance and click **Launch**.
 
 3. Test your application in the emulator. You can launch your application in 2 ways:
-   - In the Tizen Studio, select the project and click **Run As**.
+   - In Tizen Studio, select the project and click **Run As**.
    - Drag an application package file (for example, the WGT file) to the emulator to install and launch the application on the emulator.
 
 4. To close the emulator, right-click the emulator and select **Close**, or click and hold the **Power** key.
@@ -41,7 +41,7 @@ In the Emulator Manager, in addition to creating new emulator instances accordin
 <a name="speed"></a>
 ## Increasing the Application Execution Speed
 
-The Tizen x86 emulator exploits [KVM](http://www.linux-kvm.org/page/Main_Page) (Kernel-based Virtual Machine in Linux) or [HAX](../setup/hardware-accelerated-execution-manager.md) (Hardware Accelerated eXecution in Windows&reg; and macOS) with HW virtualization support.
+The Tizen x86 Emulator exploits [KVM](http://www.linux-kvm.org/page/Main_Page) (Kernel-based Virtual Machine in Linux) or [HAX](../setup/hardware-accelerated-execution-manager.md) (Hardware Accelerated eXecution in Windows&reg; and macOS) with HW virtualization support.
 
 If the CPU VT is disabled in the **Emulator Configuration** view on the Emulator Manager, check the following prerequisites and install KVM or HAX:
 
@@ -79,7 +79,7 @@ If the CPU VT is disabled in the **Emulator Configuration** view on the Emulator
 
      The HAXM driver is installed during the Tizen Studio installation. For more information on installing HAXM, see [Hardware Accelerated Execution Manager](../setup/hardware-accelerated-execution-manager.md).
 
-   > **Note**  
+   > [!NOTE]  
    > If the installation fails with a VT-related message, check the CPU feature and BIOS settings. If the installation fails with an NX-related message, enable NX (or PAE and DEP) -related item in the BIOS. In addition, make sure that the operating system supports the NX feature (for more information, see [MSDN](http://msdn.microsoft.com/en-us/library/windows/hardware/ff542275%28v=vs.85%29.aspx)).
 
    No configuration is required for KVM or HAX.
@@ -93,7 +93,7 @@ You can also run the emulator with the HW virtualization support from the comman
 <a name="supported"></a>
 ## Supported Features
 
-The emulator provides various virtual HW, media formats, codecs, and [OpenGL&reg; ES acceleration](#opengl). For better performance of the OpenGL&reg; ES support, the Tizen emulator exploits the latest feature of the graphic driver, so always [install the latest vendor-provided graphic driver](../setup/prerequisites.md#emulator). The emulator, however, has some limitations and [differences compared to physical target devices](#target).
+The emulator provides various virtual HW, media formats, codecs, and [OpenGL&reg; ES acceleration](#opengl). For better performance of the OpenGL&reg; ES support, the Tizen Emulator exploits the latest feature of the graphic driver, so always [install the latest vendor-provided graphic driver](../setup/prerequisites.md#emulator). The emulator, however, has some limitations and [differences compared to physical target devices](#target).
 
 The following table lists the basic features supported in the emulator.
 
@@ -250,7 +250,7 @@ For the emulator to support OpenGL&reg; ES acceleration, you need:
 - Graphics chipset driver that supports OpenGL&reg; 1.4 installed on the host machine
 - All chipset vendors and driver versions available to support the OpenGL&reg; 1.4 standard
 
-> **Note**  
+> [!NOTE]  
 > The emulator supports only ES 1.1, ES 2.0, and EGL&trade; 1.4 versions.
 
 <a name="target"></a>
@@ -281,7 +281,7 @@ The following tables describe the differences between a real target device and t
 			<td rowspan="5">Development environment</td>
 			<td>Target</td>
 			<td>Buy a target device or reference board (by model)</td>
-			<td>Download the Tizen Studio (multi-profile and multi-model support)</td>
+			<td>Download Tizen Studio (multi-profile and multi-model support)</td>
 		</tr>
 		<tr>
 			<td>Network</td>

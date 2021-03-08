@@ -1,4 +1,4 @@
-# Managing Emulator Instances
+# Manage Emulator Instances
 
 You can use emulators to run your application in a virtual environment.
 
@@ -11,7 +11,8 @@ The main features of the Emulator Manager are:
 - Starting and stopping the emulator instance
 
 <a name="access"></a>
-## Accessing the Emulator Manager
+
+## Access the Emulator Manager
 
 If you do not have the Emulator Manager installed, you can install it using the Tizen Studio Package Manager.
 
@@ -25,9 +26,9 @@ There are 2 different ways to access the Emulator Manager:
   |----------------------------------------|----------------------------------------|----------------------------------------|
   | **Desktop > Applications > Emulator Manager:** <br> ![Shortcut Ubuntu](./media/emulator_manager_linux_shortcut.png) | **Start > All Programs > Tizen Studio > Emulator Manager:** <br> ![Shortcut Windows](./media/emulator_manager_win_shortcut.png) | **Finder > Applications > Tizen Studio > Emulator Manager:** <br> ![Shortcut macOS](./media/emulator_manager_mac_shortcut.png) |
 
-- In the Tizen Studio, select **Tools > Emulator Manager** or click the Emulator Manager icon on the toolbar.
+- In Tizen Studio, select **Tools > Emulator Manager** or click the Emulator Manager icon on the toolbar.
 
-  **Figure: Launch the Emulator Manager in the Tizen Studio**
+  **Figure: Launch the Emulator Manager in Tizen Studio**
 
   ![Launch the Emulator Manager](./media/emulator_manager_launch.png)
 
@@ -54,9 +55,8 @@ To create a new emulator instance:
 
    To view the emulator instance details, right-click the instance and select **Detail**.
 
-   > **Note**
-   >
-   > To run the application faster, switch on CPU VT and GPU. If CPU VT is disabled, check [Increasing the Application Execution Speed](emulator.md#speed) for more information. If GPU is disabled, [install the latest vendor-provided graphic driver](../setup/prerequisites.md#emulator).
+   > [!NOTE]
+   > To run the application faster, switch on CPU VT and GPU. If CPU VT is disabled, check [Increasing the Application Execution Speed](emulator.md#speed) for more information. If GPU is disabled, [install the latest vendor-provided graphic driver](../setup/additional-requirements.md#tizen-studio-emulator).
 
 ### Creating Platforms
 
@@ -74,7 +74,7 @@ To create a custom platform:
 
 3. In the **Platform Configuration** dialog, select a base platform and platform image file.
 
-   You can create a custom platform using a qcow2 or raw format image. Qcow2 is a platform image format that is released with the Tizen Studio. You can also create a qcow2 image by [exporting an emulator](#export).
+   You can create a custom platform using a qcow2 or raw format image. Qcow2 is a platform image format that is released with Tizen Studio. You can also create a qcow2 image by [exporting an emulator](#export).
 
    A platform image in the development stage is in raw format. If you launch an emulator with a raw image, you can see the current state of the image. This can be useful for platform developers.
 
@@ -184,5 +184,5 @@ The following figure shows an example of how to create and launch an emulator us
 In the `create` command, the `–p` option is the platform name. You can see the available platforms using the `list -vm` command.
 
 ## Related information
-* Dependencies
+- Dependencies
   - Tizen Studio 1.0 and Higher

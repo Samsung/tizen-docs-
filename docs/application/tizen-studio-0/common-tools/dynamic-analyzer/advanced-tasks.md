@@ -285,7 +285,7 @@ You can launch the `dacli.jar` file from the Dynamic Analyzer installation direc
 export PATH=$PATH:<path-to-tizen-studio>/tools/dynamic-analyzer/
 ```
 
-> **Note**  
+> [!NOTE]  
 > If you have trouble with the execution, you can try one of the following:
 >
 > - Grant execution permissions to the `dacli.jar` file:
@@ -338,7 +338,7 @@ The following commands are the most useful when controlling the Dynamic Analyzer
     org.tizen.gallery              : org.tizen.gallery        : Gallery
     org.tizen.browser              : org.tizen.browser        : Internet
   ```
-  Take note of your application identifier. It is used to specify the application in other Dynamic Analyzer CLI commands. If you cannot find your application, make sure it has been installed (for example, from the Tizen Studio). The application ID can differ from the package ID.
+  Take note of your application identifier. It is used to specify the application in other Dynamic Analyzer CLI commands. If you cannot find your application, make sure it has been installed (for example, from Tizen Studio). The application ID can differ from the package ID.
 
 - `start`
 

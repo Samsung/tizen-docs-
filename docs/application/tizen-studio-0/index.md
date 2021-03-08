@@ -1,99 +1,267 @@
 # Tizen Studio
 
-**Tizen Studio 3.3 is now launched!**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Download](media/ic_docs_download.png)  **Download**](https://developer.tizen.org/development/tizen-studio/download)
+<style>
+/* Reset */
 
-The Tizen Studio platform is based on a new version of Eclipse, so you can experience a stable, lightweight, and consistent user interface that is unique to the Tizen development environment. With the Tizen Studio, you can select and install only those platforms and profiles you need.
-
-In the Tizen Studio, you can perform all the same development activities that were possible with the old Tizen SDK: you can develop, build, debug, profile, and emulate Tizen native and Web applications. The new development environment in the Tizen Studio is simply better. It allows you to develop applications more comfortably and is more focused on Tizen development. There are about 200 online sample applications available to increase your understanding of Tizen applications, and the sample library continues to grow.
-
-
-> **Note**
-> 
-> Support for Windows 32-bit and Ubuntu 32-bit will be deprecated from the next version of Tizen Studio.
-
-To develop your applications, use the set of tools provided by the Tizen Studio:
-
-- [Setup](setup/install-sdk.md)
-
-  Learn about installing and updating the Tizen Studio. You may need to install additional packages to develop applications for various platforms.
-
-- [Native Tools](native-tools/index.md)
-
-  Learn about the available native application development tools. Native applications are developed using the C programming language. You can create an application project, edit the code to meet your needs, and run the application on the emulator or a target device.
-
-- [Web Tools](web-tools/index.md)
-
-  Learn about the available Web application development tools. Web applications are developed using the JavaScript, HTML, and CSS languages. You can create an application project, edit the code to meet your needs, and run the application on the emulator, simulator, or a target device.
-
-- [Platform Tools](platform-tools/overview.md)
-
-  Learn about the platform development environment that helps you develop preloaded platform applications, platform libraries, and device drivers in Ubuntu.
-
-- [Tizen Studio for RT](rt-ide/overview.md)
-
-  Learn about the Tizen Studio for RT and how you can develop lightweight RTOS-based applications.
-
-- [Configurable SDK](configurable-sdk/configurable-sdk.md)
-
-  Learn about using the Tizen Studio to develop applications in a customizable Tizen platform environment.
+html, body, div, span, applet, object, iframe, {
+		vertical-align: baseline;
+	}
 
 
-The Tizen Studio contains many tools familiar from the old Tizen SDK, but with some improvements. The following list describes the main changes:
+/* Box Model */
+
+	*, *:before, *:after {
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+/* Button */
+		input[type="submit"].special,
+		input[type="reset"].special,
+		input[type="button"].special,
+		button.special,
+		.button.special {
+			background-color: #008aee;
+			color: #ffffff !important;
+		}
 
 
-- Installer and Package Manager
+/* Section/Article */
 
-  These tools allow you to install, update, and maintain the Tizen Studio. You can select and install the platforms and profiles you need, and receive regular updates. The tools provide you with accurate information so you can configure the development environment easily.
+	section.special, article.special, header.special {
+		text-align: center;
+	}
 
+	header {
+		margin-bottom: em;
+	}
 
-  **Figure: Package Manager**
+		header p {
+			position: relative;
+			margin: 0 0 1.5em 0;
+			text-transform: uppercase;
+		}
 
-  ![Package Manager](media/overview_package_manager.png)
+		header h2, header h3 {
+			display: inline-block;
+			padding-bottom: 0.4em;
+			border-bottom-style: double;
+			border-bottom-width: 4px;
+		}
+		@media screen and (max-width: 1280px) {
 
+			header.major {
+				margin-bottom: 2em;
+			}
 
+		}
 
-- Tizen Studio development environment
+		@media screen and (max-width: 736px) {
 
-  This component, where development of Tizen applications takes place, has a unified Tizen theme, provides a fast development environment, and improves ease of use through sorting the menu in a logical order for application development tasks and expanding the toolbar icons.
+			header.major {
+				margin-bottom: 1.5em;
+			}
 
+		}
 
-  In addition, the Tizen Studio provides accurate information in a consistent manner to minimize the difficulties you can encounter while using it.
+		@media screen and (max-width: 480px) {
 
+			header.major {
+				margin-bottom: 1em;
+			}
 
-  **Figure: Tizen Studio development environment**
+		}
 
-  ![Tizen Studio development environment](media/overview_ide.png)
+	header h2, header h3 {
+		border-bottom-color: #e3e3e3;
+	}
 
+	header p {
+		color: #bbb;
+	}
 
-- Native UI Builder
+/* Feature */
 
-  This tool provides assistance for developing native Tizen applications. It allows for visual development of UI applications using a WYSIWYG (What You See is What You Get) editor, and it helps you understand Tizen native UI development and the UI hierarchy. The application UI screen can be configured easily with this editor.
+	.features {
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-flex-wrap: wrap;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-moz-justify-content: center;
+		-webkit-justify-content: center;
+		-ms-justify-content: center;
+		justify-content: center;
+		margin-bottom: 2em;
+	}
 
-  **Figure: Native UI Builder**
+	.feature {
+		padding: 2em 2em 0.1em 2em;
+		border-style: hidden;
+		border-width: 1px;
+		margin-left: -1px;
+		margin-top: -1px;
+		width: 33.33333%;
+	}
 
-  ![Native UI Builder](media/overview_ui_builder.png)
+		.feature .fa {
+			font-size: 2.8em;
+			margin-bottom: 0.7em;
+		}
 
+		@media screen and (max-width: 1280px) {
 
-- Emulator
+			.feature {
+				padding: 2em 1.5em 0.1em 1.5em;
+			}
 
-  This tool helps you develop and debug Tizen applications without an actual Tizen device. You can select the platform, profile, and device features that you need and run applications on an emulator. In addition, through the Emulator Control Panel (ECP), you can simulate events in your application and see how the application responds.
+		}
 
-  **Figure: Emulator Manager and ECP**
+		@media screen and (max-width: 736px) {
 
-  ![Emulator Manager and ECP](media/overview_emulator.png)
+			.feature {
+				padding: 2em 1em 0.1em 1em;
+				width: 50%;
+			}
 
+		}
 
-  ![Emulator Manager and ECP](media/overview_emulator2.png)
+		@media screen and (max-width: 480px) {
 
+			.feature {
+				padding: 2em 0.5em 0.1em 0.5em;
+				width: 100%;
+			}
 
-- Profiling tool
+		}
 
-  The Tizen Studio provides profiling assistance for application optimization. By using the Dynamic Analyzer, the status of the device, such as its processor usage, memory usage, and UI events, can be measured and analyzed to help you optimize your Tizen application.
+	.feature {
+		border-color: #e3e3e3;
+	}
 
+		.feature .fa {
+			color: #00cdcf;
+		}
+	.button.special{
+      margin-top: 15px;
+      background-color: #008aee;
+      border: none;
+      color: white;
+      text-align: center;
+      display: inline-block;
+      font-size: 16px;
+	  cursor: pointer;
+	  display: inline-block;
+	  height: 2.85em;
+	  line-height: 2.95em;
+	  padding: 0 1.5em;
+	  text-align: center;
+	  text-transform: uppercase;
+	  white-space: nowrap;
+	  margin:20px;
+ }	
+ .container {
+    &__text {
+        display: inline;
+    }
+}	
+.fa {
+    color: #00cdcf;
+}
+a:link {
+  color: #008aee;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: rgb(7, 3, 245);
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: #008aee;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: y#008aee;
+  background-color: transparent;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: ;
+	font-weight: ;
+	font-size: 1rem;
+	
+    line-height: 5em;
+    margin: 0 0 1em 0;
+    text-transform: inherit;
+}
+img {
+  display: inline-block;
+  margin: 10px;
+}
+</style>
+<section id ="main">
 
-  **Figure: Dynamic Analyzer**
+Tizen Studio is an official Integrated Development Environment (IDE) for developing Tizen apps. This environment is built over Eclipse, it presents a unified environment where you can write, edit, debug, build, and publish your app. Tizen Studio runs on Windows®, Ubuntu®, and macOS®.
 
-  ![Dynamic Analyzer](media/overview_da.png)
+Tizen Studio primarily consists of: 
 
+- set of fast and feature-rich emulators for devices based on Tizen, for example: Smartphone, TV emulator, Smart watch and much more
+- extensive tool chains to capture performance, usability, version compatibility
+- code templates, samples to help you get started 
+- components to support new platforms
+- system applications and drivers 
+- utilities for compiling applications to Tizen RT (Tizen RTOS kernel variant)
+<!-- tiles-->
+<section id="one" class="wrapper special">
+		<div class="inner">
+			<header class="major">
+			</header>
 
-For more information, see [Release Notes](release-notes/release-notes.md).
+<div id="buttonzone">
+							<a href="https://developer.tizen.org/development/tizen-studio/download" class="button special">Download</a>
+							<a href="./setup/install-sdk" class="button special">Get Started</a>
+						</div>
+						
+</header>
+<p>Visit the following pages to explore more about Tizen Studio:</p>
+                        <div class="features">
+                        <div class="feature">
+                        <img src="./media/Tools.png">
+                         <div style="width:100%;text-align:center;">
+						 <a href="native-tools/index.md">
+						 Native Tools</a>
+                        </div>
+						</div>
+						<div class="feature">
+							<img src="./media/RT.png">
+							<div style="width:100%;text-align:center;">
+							<a href= "web-tools/index.md">Web Tools</a>
+							</div>
+						</div>
+						<div class="feature">
+							<img src="./media/Csdk.png">
+                            <div style="width:100%;text-align:center;">
+							<a href= "configurable-sdk/configurable-sdk.md">Configurable-IoT SDK</a></div>
+						</div>
+						<div class="feature">
+							<img src="./media/SDK.png">
+                            <div style="width:100%;text-align:center;">
+							<a href= "extension-sdk/overview.md">Extension SDK</a>
+							</div>
+						</div>
+						<div class="feature">
+							<i class="fa fa-envelope-o"></i>
+							<img src="./media/webtools.png">
+							<div style="width:100%;text-align:center;">
+							<a href= "rt-ide/overview.md">Tizen RT IDE</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
