@@ -2,10 +2,6 @@
 
 This topic provides information on how to set up a development environment.
 
-> **Note**
->
-> If you encounter problems while obtaining the repo tool, see [Development Tips](tips.md).
-
 ## Setting Up Gerrit Access
 
 You can set up access to [Tizen Gerrit](http://review.tizen.org/gerrit/) through the following steps:
@@ -63,7 +59,7 @@ To configure SSH for Gerrit access:
 
 2. Create an SSH configuration file, `~/.ssh/config`, and add 1 of the following, as appropriate:
 
-   - Ubuntu, openSUSE, CentOS, or Debian:
+   - Ubuntu or openSUSE:
 
      ```
      Host tizen review.tizen.org
@@ -73,17 +69,6 @@ To configure SSH for Gerrit access:
      Port 29418
      # Add the line below when using proxy, otherwise, skip it
      # ProxyCommand nc -X5 -x <Proxy Address>:<Port> %h %p
-     ```
-
-   - Fedora:
-
-     ```
-     Host tizen review.tizen.org
-     Hostname review.tizen.org
-     IdentityFile ~/.ssh/id_rsaUser <Gerrit_Username>
-     Port 29418
-     # Add the line below when using proxy, otherwise, skip it
-     # ProxyCommand nc --proxy-type socks4 --proxy <Proxy Address>:<Port> %h %p
      ```
 
    > **Note**
@@ -129,7 +114,7 @@ To configure Git for Gerrit access:
    ```
 2. Set the email address by executing the following command:
    ```
-   $ git config --global user.email "<E-mail_Address>"
+   $ git config --global user.email <E-mail_Address>
    ```
 
 > **Note**
@@ -146,14 +131,13 @@ The default GBS configuration file is located in `~/.gbs.conf`:
 
 ```
 [general]
-profile = profile.3.0-mobile_target-TM1
-
+profile = profile.unified-standard
 
 #########################################################
 ################## Profile Section ##################
 #########################################################
 
-############# 5.0-unified #############
+############# unified #############
 [profile.unified_standard]
 buildconf=./scm/meta/build-config/unified/standard_build.conf
 repos = repo.base_standard,repo.base_standard_debug,repo.unified_standard,repo.unified_standard_debug
@@ -161,85 +145,6 @@ repos = repo.base_standard,repo.base_standard_debug,repo.unified_standard,repo.u
 [profile.unified_emulator]
 buildconf=./scm/meta/build-config/unified/emulator_build.conf
 repos = repo.base_standard,repo.base_standard_debug,repo.unified_emulator,repo.unified_emulator_debug
-
-############# 4.0-unified #############
-[profile.4.0-unified_standard]
-buildconf=./scm/meta/build-config/4.0/unified/standard_build.conf
-repos = repo.4.0-base_arm,repo.4.0-base_arm_debug,repo.4.0-base_arm64,repo.4.0-base_arm64_debug,repo.4.0-base_ia32,repo.4.0-base_ia32_debug,repo.4.0-base_x86_64,repo.4.0-base_x86_64_debug,repo.4.0-unified_standard,repo.4.0-unified_standard_debug
-
-[profile.4.0-unified_emulator]
-buildconf=./scm/meta/build-config/4.0/unified/emulator_build.conf
-repos = repo.4.0-base_ia32,repo.4.0-base_ia32_debug,repo.4.0-base_x86_64,repo.4.0-base_x86_64_debug,repo.4.0-unified_emulator,repo.4.0-unified_emulator_debug
-
-############# 3.0-common #############
-[profile.3.0-common_x86_64-wayland]
-buildconf=./scm/meta/build-config/3.0/common/x86_64-wayland_build.conf
-repos = repo.3.0-base_x86_64,repo.3.0-base_x86_64_debug,repo.3.0-common_x86_64-wayland,repo.3.0-common_x86_64-wayland_debug
-
-[profile.3.0-common_ia32-wayland]
-buildconf=./scm/meta/build-config/3.0/common/ia32-wayland_build.conf
-repos = repo.3.0-base_ia32,repo.3.0-base_ia32_debug,repo.3.0-common_ia32-wayland,repo.3.0-common_ia32-wayland_debug
-
-[profile.3.0-common_emulator32-wayland]
-buildconf=./scm/meta/build-config/3.0/common/emulator32-wayland_build.conf
-repos = repo.3.0-base_emulator32,repo.3.0-base_emulator32_debug,repo.3.0-common_emulator32-wayland,repo.3.0-common_emulator32-wayland_debug
-
-[profile.3.0-common_arm64-wayland]
-buildconf=./scm/meta/build-config/3.0/common/arm64-wayland_build.conf
-repos = repo.3.0-base_arm64,repo.3.0-base_arm64_debug,repo.3.0-common_arm64-wayland,repo.3.0-common_arm64-wayland_debug
-
-[profile.3.0-common_arm-wayland]
-buildconf=./scm/meta/build-config/3.0/common/arm-wayland_build.conf
-repos = repo.3.0-base_arm,repo.3.0-base_arm_debug,repo.3.0-common_arm-wayland,repo.3.0-common_arm-wayland_debug
-
-############# 3.0-mobile #############
-[profile.3.0-mobile_target-TM1]
-buildconf=./scm/meta/build-config/3.0/mobile/target-TM1_build.conf
-repos = repo.3.0-base_arm,repo.3.0-base_arm_debug,repo.3.0-mobile_target-TM1,repo.3.0-mobile_target-TM1_debug
-
-[profile.3.0-mobile_emulator32-wayland]
-buildconf=./scm/meta/build-config/3.0/mobile/emulator32-wayland_build.conf
-repos = repo.3.0-base_emulator32,repo.3.0-base_emulator32_debug,repo.3.0-mobile_emulator32-wayland,repo.3.0-mobile_emulator32-wayland_debug
-
-[profile.3.0-mobile_arm-wayland]
-buildconf=./scm/meta/build-config/3.0/mobile/arm-wayland_build.conf
-repos = repo.3.0-base_arm,repo.3.0-base_arm_debug,repo.3.0-mobile_arm-wayland,repo.3.0-mobile_arm-wayland_debug
-
-############# 3.0-tv #############
-[profile.3.0-tv_emulator64-wayland]
-buildconf=./scm/meta/build-config/3.0/tv/emulator64-wayland_build.conf
-repos = repo.3.0-base_emulator64,repo.3.0-base_emulator64_debug,repo.3.0-tv_emulator64-wayland,repo.3.0-tv_emulator64-wayland_debug
-
-[profile.3.0-tv_emulator32-wayland]
-buildconf=./scm/meta/build-config/3.0/tv/emulator32-wayland_build.conf
-repos = repo.3.0-base_emulator32,repo.3.0-base_emulator32_debug,repo.3.0-tv_emulator32-wayland,repo.3.0-tv_emulator32-wayland_debug
-
-[profile.3.0-tv_arm-wayland]
-buildconf=./scm/meta/build-config/3.0/tv/arm-wayland_build.conf
-repos = repo.3.0-base_arm,repo.3.0-base_arm_debug,repo.3.0-tv_arm-wayland,repo.3.0-tv_arm-wayland_debug
-
-############# 3.0-wearable #############
-[profile.3.0-wearable_target-circle]
-buildconf=./scm/meta/build-config/3.0/wearable/target-circle_build.conf
-repos = repo.3.0-base_arm,repo.3.0-base_arm_debug,repo.3.0-wearable_target-circle,repo.3.0-wearable_target-circle_debug
-
-[profile.3.0-wearable_emulator32-wayland]
-buildconf=./scm/meta/build-config/3.0/wearable/emulator32-wayland_build.conf
-repos = repo.3.0-base_emulator32,repo.3.0-base_emulator32_debug,repo.3.0-wearable_emulator32-wayland,repo.3.0-wearable_emulator32-wayland_debug
-
-[profile.3.0-wearable_emulator-circle]
-buildconf=./scm/meta/build-config/3.0/wearable/emulator-circle_build.conf
-repos = repo.3.0-base_emulator32,repo.3.0-base_emulator32_debug,repo.3.0-wearable_emulator-circle,repo.3.0-wearable_emulator-circle_debug
-
-############# 3.0-ivi #############
-[profile.3.0-ivi_emulator]
-buildconf=./scm/meta/build-config/3.0/ivi/emulator_build.conf
-repos = repo.3.0-base_emulator32,repo.3.0-base_emulator32_debug,repo.3.0-ivi_emulator,repo.3.0-ivi_emulator_debug
-
-[profile.3.0-ivi_arm]
-buildconf=./scm/meta/build-config/3.0/ivi/arm_build.conf
-repos = repo.3.0-base_arm,repo.3.0-base_arm_debug,repo.3.0-ivi_arm,repo.3.0-ivi_arm_debug
-
 
 
 #########################################################
@@ -252,69 +157,7 @@ url = http://download.tizen.org/releases/daily/tizen/base/latest/repos/standard/
 [repo.base_standard_debug]
 url = http://download.tizen.org/releases/daily/tizen/base/latest/repos/standard/debug/
 
-############# 4.0-base #############
-[repo.4.0-base_x86_64]
-url = http://download.tizen.org/releases/daily/tizen/4.0-base/latest/repos/x86_64/packages/
-[repo.4.0-base_x86_64_debug]
-url = http://download.tizen.org/releases/daily/tizen/4.0-base/latest/repos/x86_64/debug/
-
-[repo.4.0-base_ia32]
-url = http://download.tizen.org/releases/daily/tizen/4.0-base/latest/repos/ia32/packages/
-[repo.4.0-base_ia32_debug]
-url = http://download.tizen.org/releases/daily/tizen/4.0-base/latest/repos/ia32/debug/
-
-[repo.4.0-base_emulator64]
-url = http://download.tizen.org/releases/daily/tizen/4.0-base/latest/repos/emulator64/packages/
-[repo.4.0-base_emulator64_debug]
-url = http://download.tizen.org/releases/daily/tizen/4.0-base/latest/repos/emulator64/debug/
-
-[repo.4.0-base_emulator32]
-url = http://download.tizen.org/releases/daily/tizen/4.0-base/latest/repos/emulator32/packages/
-[repo.4.0-base_emulator32_debug]
-url = http://download.tizen.org/releases/daily/tizen/4.0-base/latest/repos/emulator32/debug/
-
-[repo.4.0-base_arm64]
-url = http://download.tizen.org/releases/daily/4.0-base/latest/repos/arm64/packages/
-[repo.4.0-base_arm64_debug]
-url = http://download.tizen.org/releases/daily/tizen/4.0-base/latest/repos/arm64/debug/
-
-[repo.4.0-base_arm]
-url = http://download.tizen.org/releases/daily/tizen/4.0-base/latest/repos/arm/packages/
-[repo.4.0-base_arm_debug]
-url = http://download.tizen.org/releases/daily/tizen/4.0-base/latest/repos/arm/debug/
-
-############# 3.0-base #############
-[repo.3.0-base_x86_64]
-url = http://download.tizen.org/releases/daily/tizen/3.0-base/latest/repos/x86_64/packages/
-[repo.3.0-base_x86_64_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-base/latest/repos/x86_64/debug/
-
-[repo.3.0-base_ia32]
-url = http://download.tizen.org/releases/daily/tizen/3.0-base/latest/repos/ia32/packages/
-[repo.3.0-base_ia32_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-base/latest/repos/ia32/debug/
-
-[repo.3.0-base_emulator64]
-url = http://download.tizen.org/releases/daily/tizen/3.0-base/latest/repos/emulator64/packages/
-[repo.3.0-base_emulator64_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-base/latest/repos/emulator64/debug/
-
-[repo.3.0-base_emulator32]
-url = http://download.tizen.org/releases/daily/tizen/3.0-base/latest/repos/emulator32/packages/
-[repo.3.0-base_emulator32_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-base/latest/repos/emulator32/debug/
-
-[repo.3.0-base_arm64]
-url = http://download.tizen.org/releases/daily/tizen/3.0-base/latest/repos/arm64/packages/
-[repo.3.0-base_arm64_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-base/latest/repos/arm64/debug/
-
-[repo.3.0-base_arm]
-url = http://download.tizen.org/releases/daily/tizen/3.0-base/latest/repos/arm/packages/
-[repo.3.0-base_arm_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-base/latest/repos/arm/debug/
-
-############# 5.0-unified #############
+############# unified #############
 [repo.unified_standard]
 url = http://download.tizen.org/releases/daily/tizen/unified/latest/repos/standard/packages/
 [repo.unified_standard_debug]
@@ -325,106 +168,12 @@ url = http://download.tizen.org/releases/daily/tizen/unified/latest/repos/emulat
 [repo.unified_emulator_debug]
 url = http://download.tizen.org/releases/daily/tizen/unified/latest/repos/emulator/debug/
 
-############# 4.0-unified #############
-[repo.4.0-unified_standard]
-url = http://download.tizen.org/releases/daily/tizen/4.0-unified/latest/repos/standard/packages/
-[repo.4.0-unified_standard_debug]
-url = http://download.tizen.org/releases/daily/tizen/4.0-unified/latest/repos/standard/debug/
-
-[repo.4.0-unified_emulator]
-url = http://download.tizen.org/releases/daily/tizen/4.0-unified/latest/repos/emulator/packages/
-[repo.4.0-unified_emulator_debug]
-url = http://download.tizen.org/releases/daily/tizen/4.0-unified/latest/repos/emulator/debug/
-
-############# 3.0-common #############
-[repo.3.0-common_x86_64-wayland]
-url = http://download.tizen.org/releases/daily/tizen/3.0-common/latest/repos/x86_64-wayland/packages/
-[repo.3.0-common_x86_64-wayland_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-common/latest/repos/x86_64-wayland/debug/
-
-[repo.3.0-common_ia32-wayland]
-url = http://download.tizen.org/releases/daily/tizen/3.0-common/latest/repos/ia32-wayland/packages/
-[repo.3.0-common_ia32-wayland_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-common/latest/repos/ia32-wayland/debug/
-
-[repo.3.0-common_emulator32-wayland]
-url = http://download.tizen.org/releases/daily/tizen/3.0-common/latest/repos/emulator32-wayland/packages/
-[repo.3.0-common_emulator32-wayland_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-common/latest/repos/emulator32-wayland/debug/
-
-[repo.3.0-common_arm64-wayland]
-url = http://download.tizen.org/releases/daily/tizen/3.0-common/latest/repos/arm64-wayland/packages/
-[repo.3.0-common_arm64-wayland_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-common/latest/repos/arm64-wayland/debug/
-
-[repo.3.0-common_arm-wayland]
-url = http://download.tizen.org/releases/daily/tizen/3.0-common/latest/repos/arm-wayland/packages/
-[repo.3.0-common_arm-wayland_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-common/latest/repos/arm-wayland/debug/
-
-############# 3.0-mobile #############
-[repo.3.0-mobile_target-TM1]
-url = http://download.tizen.org/releases/daily/tizen/3.0-mobile/latest/repos/target-TM1/packages/
-[repo.3.0-mobile_target-TM1_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-mobile/latest/repos/target-TM1/debug/
-
-[repo.3.0-mobile_emulator32-wayland]
-url = http://download.tizen.org/releases/daily/tizen/3.0-mobile/latest/repos/emulator32-wayland/packages/
-[repo.3.0-mobile_emulator32-wayland_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-mobile/latest/repos/emulator32-wayland/debug/
-
-[repo.3.0-mobile_arm-wayland]
-url = http://download.tizen.org/releases/daily/tizen/3.0-mobile/latest/repos/arm-wayland/packages/
-[repo.3.0-mobile_arm-wayland_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-mobile/latest/repos/arm-wayland/debug/
-
-############# 3.0-tv #############
-[repo.3.0-tv_emulator64-wayland]
-url = http://download.tizen.org/releases/daily/tizen/3.0-tv/latest/repos/emulator64-wayland/packages/
-[repo.3.0-tv_emulator64-wayland_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-tv/latest/repos/emulator64-wayland/debug/
-
-[repo.3.0-tv_emulator32-wayland]
-url = http://download.tizen.org/releases/daily/tizen/3.0-tv/latest/repos/emulator32-wayland/packages/
-[repo.3.0-tv_emulator32-wayland_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-tv/latest/repos/emulator32-wayland/debug/
-
-[repo.3.0-tv_arm-wayland]
-url = http://download.tizen.org/releases/daily/tizen/3.0-tv/latest/repos/arm-wayland/packages/
-[repo.3.0-tv_arm-wayland_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-tv/latest/repos/arm-wayland/debug/
-
-############# 3.0-wearable #############
-[repo.3.0-wearable_target-circle]
-url = http://download.tizen.org/releases/daily/tizen/3.0-wearable/latest/repos/target-circle/packages/
-[repo.3.0-wearable_target-circle_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-wearable/latest/repos/target-circle/debug/
-
-[repo.3.0-wearable_emulator32-wayland]
-url = http://download.tizen.org/releases/daily/tizen/3.0-wearable/latest/repos/emulator32-wayland/packages/
-[repo.3.0-wearable_emulator32-wayland_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-wearable/latest/repos/emulator32-wayland/debug/
-
-[repo.3.0-wearable_emulator-circle]
-url = http://download.tizen.org/releases/daily/tizen/3.0-wearable/latest/repos/emulator-circle/packages/
-[repo.3.0-wearable_emulator-circle_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-wearable/latest/repos/emulator-circle/debug/
-
-############# 3.0-ivi #############
-[repo.3.0-ivi_emulator]
-url = http://download.tizen.org/releases/daily/tizen/3.0-ivi/latest/repos/emulator/packages/
-[repo.3.0-ivi_emulator_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-ivi/latest/repos/emulator/debug/
-
-[repo.3.0-ivi_arm]
-url = http://download.tizen.org/releases/daily/tizen/3.0-ivi/latest/repos/arm/packages/
-[repo.3.0-ivi_arm_debug]
-url = http://download.tizen.org/releases/daily/tizen/3.0-ivi/latest/repos/arm/debug/
 ```
 
 > **Note**
 >
-> The file contains the GBS configuration for all profiles and repositories in Tizen version 3.0, Tizen version 4.0 and Tizen version 5.0. In the near future in new GBS versions, the above default configuration file (`~/.gbs.conf`) is automatically installed when GBS is installed.
+> The file contains the GBS configuration for latest profiles and repositories. In the near future in new GBS versions, the above default configuration file (`~/.gbs.conf`) is automatically installed when GBS is installed.
+> If you want to get specific version of gbs.conf file, please check [gbs-config](https://review.tizen.org/gerrit/#/admin/projects/scm/meta/gbs-config) git.
 
 > **Note**
 >
@@ -440,7 +189,7 @@ profile = profile.unified_standard
 > **Note**
 >
 > The default GBS build parameters, based on the above block, are as follows:
-> - Tizen version: 5.0
+> - Tizen version: latest (check [release note](https://docs.tizen.org/platform/release-notes/tizen-6-5-m1/)).
 > - Profile: unified
 > - Repository: standard
 
@@ -450,63 +199,19 @@ To build using a non-default Tizen version, profile, or repository, select 1 of 
 
 ```
 [general]
-profile = profile."$Version""$Profile"_"$Repository"
+profile = profile.<Version><Profile>_<Repository>
 ```
 
-- If the Tizen version is 3.0, `$Version` equals "3.0-".
-- If the Tizen version is 4.0, `$Version` equals "4.0-".
-- If the Tizen version is 5.0, `$Version` equals "".
+- If the Tizen version is lastest, `$Version` equals "".
+- If the Tizen version is others, `$Version` equals "#.#-".
 
 Other examples:
 
-- Tizen 5.0 Unified / emulator repository
+- Tizen Unified / emulator repository
 
   ```
   [general]
   profile = profile.unified_emulator
-  ```
-
-- Tizen 4.0 Unified / emulator repository
-
-  ```
-  [general]
-  profile = profile.4.0-unified_emulator
-  ```
-
-- Tizen 3.0 Common / arm64-wayland repository
-  ```
-  [general]
-  profile = profile.3.0-common_arm64-wayland
-  ```
-
-- Tizen 3.0 Common / emulator32-wayland repository
-  ```
-  [general]
-  profile = profile.3.0-common_emulator32-wayland
-  ```
-
-- Tizen 3.0 Mobile / target-TM1 repository
-  ```
-  [general]
-  profile = profile.3.0-mobile_target-TM1
-  ```
-
-- Tizen 3.0 TV / arm-wayland repository
-  ```
-  [general]
-  profile = profile.3.0-tv_arm-wayland
-  ```
-
-- Tizen 3.0 Wearable / target-circle repository
-  ```
-  [general]
-  profile = profile.3.0-wearable_target-circle
-  ```
-
-- Tizen 3.0 IVI / emulator repository
-  ```
-  [general]
-  profile = profile.3.0-ivi_emulator
   ```
 
 Each `profile` entry in the `.gbs.conf` file specifies multiple `repo` entries, and each `repo` entry specifies a URL where RPM files used in the GBS build are located.
@@ -544,6 +249,14 @@ To install and set up the repo tool:
    ```
 
    > **Note**
+   >
+   > This repo tool is launched only Python 3.6+, but if your environment is under than Ubuntu 16.04
+   > Python's last supported version is 3.5.2. So you can encounter some problems launch a repo tool.
+   > In that case, please download repo script below url insteads.
+   > ```
+   > $ curl https://storage.googleapis.com/git-repo-downloads/repo-1 > ~/bin/repo
+   > ```
+   > You can get more information in [old-repo-python](https://source.android.com/setup/develop#old-repo-python2) page.
    >
    > If you encounter problems while obtaining the repo tool, see [Development Tips](tips.md).
 

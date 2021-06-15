@@ -2,11 +2,15 @@
 
 Tizen SCM tools support the following Linux distribution versions:
 
-- Ubuntu 16.04/14.04/12.04
-- openSUSE 13.2/13.1/12.3/Leap 42.1
-- Fedora 23/22/21/20
-- CentOS 7/6
-- Debian 8/7
+- Ubuntu 20.04/18.04/16.04/14.04
+- openSUSE 13.2/Leap 42.1/42.3
+
+> **Note**
+>
+> These tools are maintained in http://download.tizen.org/tools/latest-release/ .
+> If you cannot find your linux system, that means currently tizen SCM tools doesn't support your OS system.
+> But if you want to use tools although your OS system,
+> you can find http://download.tizen.org/tools/archive/, Tizen SCM tools are stored that repository.
 
 You can install a variety of development tools, including:
 
@@ -25,58 +29,49 @@ To install a development tool in Ubuntu or Debian:
 >
 > The `apt-get install <Package_Name>` command is recommended because it upgrades 1 or more already installed packages without upgrading every package installed, whereas the `apt-get upgrade` command installs the newest version of all currently installed packages. In addition, `apt-get update` must always be executed before `apt-get install <Package_Name>` or `apt-get upgrade`, to resynchronize the package index files.
 
-1. Open the package manager source list using a text editor.
-
-   VIM is used in the following example:
+1. Use the following command to set up the Tizen repository in your apt list.
 
    ```
-   $ sudo vim /etc/apt/sources.list
+   echo "deb [trusted=yes] http://download.tizen.org/tools/latest-release/Ubuntu_$(lsb_release -rs)/ /" | \
+   sudo tee /etc/apt/sources.list.d/tizen.list > /dev/null
    ```
+   > **Note**
+   >
+   > The `lsb_release -rs` sub-command below returns the version of your Ubuntu distribution.
 
-2. Add the Tizen tools repository to the source list.
-
-   For example:
-
-   - In Ubuntu 16.04, append the following line to the source list:
-
-     ```
-     deb [trusted=yes] http://download.tizen.org/tools/latest-release/Ubuntu_16.04/ /
-     ```
-
-   - In Ubuntu 14.04, append the following line to the source list:
-
-     ```
-     deb http://download.tizen.org/tools/latest-release/Ubuntu_14.04/ /
-     ```
 
    > **Note**
    >
+   > You can set up the Tizen repository manually like below:
+   > 1. Open the package manager source list using a text editor.
+   >
+   >    VIM is used in the following example:
+   >
+   >    ```
+   >    $ sudo vim /etc/apt/sources.list.d/tizen.list
+   >    ```
+   >
+   > 2. Add the Tizen tools repository to the source list.
+   >
+   >    ```
+   >    deb [trusted=yes] http://download.tizen.org/tools/latest-release/Ubuntu_<version>/ /
+   >    ```
+   >
+   >    For example:
+   >
+   >    - In Ubuntu 20.04, append the following line to the source list:
+   >
+   >      ```
+   >      deb [trusted=yes] http://download.tizen.org/tools/latest-release/Ubuntu_20.04/ /
+   >      ```
+   >
    > Pay special attention to the space between the URL and "/".
 
-3. Resynchronize the package index files from the sources specified in the source list:
+2. Resynchronize the package index files from the sources specified in the source list and install development tools:
 
    ```
-   $ sudo apt-get update
+   sudo apt-get update && sudo apt-get install gbs mic
    ```
-
-4. Install a development tool:
-
-   ```
-   $ sudo apt-get install <Package_Name>
-   ```
-
-   For example, to install GBS and MIC:
-
-   ```
-   $ sudo apt-get install gbs mic
-   ```
-
-You can upgrade a development tool using 1 of following methods, as appropriate:
-
-```
-$ sudo apt-get update && sudo apt-get install <Package_Name>
-$ sudo apt-get update && sudo apt-get upgrade
-```
 
 ## Installing Development Tools in openSUSE
 
@@ -97,52 +92,6 @@ To install a development tool in openSUSE:
 2. Install a development tool:
 
    ```
-   $ sudo zypper refresh$ sudo zypper install <Package_Name>
-   ```
-
-   For example, to install GBS and MIC:
-
-   ```
    $ sudo zypper refresh
    $ sudo zypper install gbs mic
    ```
-
-You can upgrade a development tool with the following commands:
-
-```
-$ sudo zypper refresh
-$ sudo zypper update <Package_Name>
-```
-
-## Installing Development Tools in Fedora or CentOS
-
-To install a development tool in Fedora or CentOS:
-
-1. Add the Tizen tools repository to the package manager source list.
-
-   In Fedora 23, for example:
-
-   ```
-   $ sudo wget -O /etc/yum.repos.d/tools.repo http://download.tizen.org/tools/latest-release/Fedora_23/tools.repo
-   ```
-
-2. Install a development tool:
-
-   ```
-   $ sudo yum makecache
-   $ sudo yum install <Package_Name>
-   ```
-
-   For example, to install GBS and MIC:
-
-   ```
-   $ sudo yum makecache
-   $ sudo yum install gbs mic
-   ```
-
-You can upgrade a development tool with the following commands:
-
-```
-$ sudo yum makecache
-$ sudo yum update <Package_Name>
-```
