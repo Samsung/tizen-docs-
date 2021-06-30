@@ -57,202 +57,57 @@ To clone the latest sources of all projects over SSH:
    Initialize the repository by executing the following command:
 
    ```
-   $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b <tizen branch> -m ${profile}_${repository}.xml
+   $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b <tizen branch> -m <profile>_<repository>.xml
    ```
+   > **Note**
+   >
+   > If you encounter some problems using repo tools, please check [Setting Up the Repo Tool](./setting-up.md#setting-up-the-repo-tool).
 
-    `<tizen branch>` is `tizen` for Tizen 5.0, `tizen_4.0` for Tizen 4.0 and `tizen_3.0` for Tizen 3.0.
+    `<tizen branch>` is `tizen` for Tizen latest version and others `tizen_<version> branch` are `tizen <version>` for Tizen specific version include old versions.
 
    For example:
 
-   - Tizen 5.0 Unified / standard
+   - Tizen Unified / standard
 
      ```
      $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen -m unified_standard.xml
      ```
 
-   - Tizen 5.0 Unified / emulator
+   - Tizen Unified / emulator
 
      ```
      $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen -m unified_emulator.xml
      ```
 
-   - Tizen 4.0 Unified / standard
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_4.0 -m unified_standard.xml
-     ```
-
-   - Tizen 4.0 Unified / standard
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_4.0 -m unified_standard.xml
-     ```
-
-   - Tizen 4.0 Unified / emulator
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_4.0 -m unified_emulator.xml
-     ```
-
-   - Tizen 3.0 Common / arm-wayland
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_3.0 -m common_arm-wayland.xml
-     ```
-
-   - Tizen 3.0 Common / arm64-wayland
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_3.0 -m common_arm64-wayland.xml
-     ```
-
-   - Tizen 3.0 Common / emulator32-wayland
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_3.0 -m common_emulator32-wayland.xml
-     ```
-
-   - Tizen 3.0 Common / ia32-wayland
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_3.0 -m common_ia32-wayland.xml
-     ```
-
-   - Tizen 3.0 Common / x86_64-wayland
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_3.0 -m common_x86_64-wayland.xml
-     ```
-
-   - Tizen 3.0 Mobile / arm-wayland
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_3.0 -m mobile_arm-wayland.xml
-     ```
-
-   - Tizen 3.0 Mobile / emulator-wayland
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_3.0 -m mobile_emulator-wayland.xml
-     ```
-
-   - Tizen 3.0 Mobile / target-TM1
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_3.0 -m mobile_target-TM1.xml
-     ```
-
-   - Tizen 3.0 TV / arm-wayland
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_3.0 -m tv_arm-wayland.xml
-     ```
-
-   - Tizen 3.0 TV / emulator32-wayland
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_3.0 -m tv_emulator32-wayland.xml
-     ```
-
-   - Tizen 3.0 TV / emulator64-wayland
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_3.0 -m tv_emulator64-wayland.xml
-     ```
-
-   - Tizen 3.0 Wearable / emulator-circle
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_3.0 -m wearable_emulator-circle.xml
-     ```
-
-   - Tizen 3.0 Wearable / target-circle
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_3.0 -m wearable_target-circle.xml
-     ```
-
-   - Tizen 3.0 Wearable / emulator32-wayland
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_3.0 -m wearable_emulator32-wayland.xml
-     ```
-
-   - Tizen 3.0 IVI /arm
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_3.0 -m ivi_arm.xml
-     ```
-
-   - Tizen 3.0 IVI / emulator
-
-     ```
-     $ repo init -u ssh://<Username>@review.tizen.org:29418/scm/manifest -b tizen_3.0 -m ivi_emulator.xml
-     ```
-
-3. Clone the specific snapshot source of all projects over SSH (optional).
+3. **(optional)** Clone the specific snapshot source of all projects over SSH.
    Replace the latest manifest with a snapshot manifest and make proper modifications by executing the following commands, as appropriate:
 
    ```
    $ wget  <Snapshot_Manifest_URL> -O .repo/manifests/<profile>/<repository>/projects.xml
-   $ sed -i '3,4d' .repo/manifests/<profile>/<repository>/projects.xml
    ```
 
    For example:
 
-   - Tizen 5.0 Unified / standard
+   - Tizen Unified / standard
 
      ```
-     $ wget http://download.tizen.org/releases/weekly/tizen/unified/tizen-unified_20170928.1/builddata/manifest/tizen-unified_20170928.1_standard.xml -O .repo/manifests/unified/standard/projects.xml
-     $ sed -i '3,4d' .repo/manifests/unified/standard/projects.xml
-     ```
-
-   - Tizen 4.0 Unified / emulator
-
-     ```
-     $ wget http://download.tizen.org/releases/weekly/tizen/4.0-unified/tizen-4.0-unified_20171027.1/builddata/manifest/tizen-4.0-unified_20171027.1_emulator.xml -O .repo/manifests/unified/standard/projects.xml
-     $ sed -i '3,4d' .repo/manifests/unified/standard/projects.xml
-     ```
-
-   - Tizen 3.0 Common / arm64-wayland
-
-     ```
-     $ wget  http://download.tizen.org/snapshots/tizen/3.0-common/tizen-3.0-common_20170627.1/builddata/manifest/tizen-3.0-common_20170627.1_arm64-wayland.xml -O .repo/manifests/common/arm64-wayland/projects.xml
-     $ sed -i '3,4d' .repo/manifests/common/arm64-wayland/projects.xml
-     ```
-
-   - Tizen 3.0 Mobile / target-TM1
-
-     ```
-     $ wget  http://download.tizen.org/snapshots/tizen/3.0-mobile/tizen-3.0-mobile_20170627.1/builddata/manifest/tizen-3.0-mobile_20170627.1_target-TM1.xml -O .repo/manifests/mobile/target-TM1/projects.xml
-     $ sed -i '3,4d' .repo/manifests/mobile/target-TM1/projects.xml
-     ```
-
-   - Tizen 3.0 TV / arm-wayland
-
-     ```
-     $ wget  http://download.tizen.org/snapshots/tizen/3.0-tv/tizen-3.0-tv_20170627.1/builddata/manifest/tizen-3.0-tv_20170627.1_arm-wayland.xml -O .repo/manifests/tv/arm-wayland/projects.xml
-     $ sed -i '3,4d' .repo/manifests/tv/arm-wayland/projects.xml
-     ```
-
-   - Tizen 3.0 Wearable / emulator-circle
-
-     ```
-     $ wget  http://download.tizen.org/snapshots/tizen/3.0-wearable/tizen-3.0-wearable_20170627.1/builddata/manifest/tizen-3.0-wearable_20170627.1_emulator-circle.xml -O .repo/manifests/wearable/emulator-circle/projects.xml
-     $ sed -i '3,4d' .repo/manifests/wearable/emulator-circle/projects.xml
-     ```
-
-   - Tizen 3.0 IVI / arm
-
-     ```
-     $ wget  http://download.tizen.org/snapshots/tizen/3.0-ivi/tizen-3.0-ivi_20170627.1/builddata/manifest/tizen-3.0-ivi_20170627.1_arm.xml -O .repo/manifests/ivi/arm/projects.xml
-     $ sed -i '3,4d' .repo/manifests/ivi/arm/projects.xml
+     $ wget http://download.tizen.org/releases/weekly/tizen/unified/tizen-unified_20201020.1/builddata/manifest/tizen-unified_tizen-unified_20201020.1_standard.xml -O .repo/manifests/unified/standard/projects.xml
      ```
 
 4. Synchronize the files for all the projects based on the information downloaded by the `repo init` command by executing the following command:
    ```
    $ repo sync
    ```
+
+   > **Note**
+   >
+   > You can use several options to increase sync speed.
+   >
+   > For example,
+   > ```
+   > $ repo sync -j 4
+   > ```
+   > you can control jobs number using -j option.
 
 ### Cloning All Projects over HTTPS
 
@@ -270,10 +125,10 @@ To clone the latest sources of all projects over HTTPS:
    Initialize the repository by executing the following command:
 
    ```
-   $ repo init -u https://git.tizen.org/cgit/scm/manifest -b <tizen branch> -m unified_${repository}.xml
+   $ repo init -u https://git.tizen.org/cgit/scm/manifest -b <tizen branch> -m unified_<repository>.xml
    ```
 
-   `<tizen branch>` is `tizen` for Tizen 5.0,  `tizen_4.0` for Tizen 4.0 and `tizen_3.0` for Tizen 3.0.
+   `<tizen branch>` is `tizen` for Tizen latest version and others `tizen_<version> branch` are `tizen <version>` for Tizen specific version include old versions.
 
    > **Note**
    >
@@ -281,47 +136,12 @@ To clone the latest sources of all projects over HTTPS:
 
    For example:
 
-   - Tizen 5.0 Unified / standard
+   - Tizen Unified / standard
 
      ```
      $ repo init -u https://git.tizen.org/cgit/scm/manifest -b tizen -m unified_standard.xml
      ```
 
-   - Tizen 4.0 Unified / emulator
-
-     ```
-     $ repo init -u https://git.tizen.org/cgit/scm/manifest -b tizen_4.0 -m unified_emulator.xml
-     ```
-
-   - Tizen 3.0 Common / arm64-wayland
-
-     ```
-     $ repo init -u https://git.tizen.org/cgit/scm/manifest -b tizen_3.0 -m common_arm64-wayland.xml
-     ```
-
-   - Tizen 3.0 Mobile / target-TM1
-
-     ```
-     $ repo init -u https://git.tizen.org/cgit/scm/manifest -b tizen_3.0 -m mobile_target-TM1.xml
-     ```
-
-   - Tizen 3.0 TV / arm-wayland
-
-     ```
-     $ repo init -u https://git.tizen.org/cgit/scm/manifest -b tizen_3.0 -m tv_arm-wayland.xml
-     ```
-
-   - Tizen 3.0 Wearable / emulator-circle
-
-     ```
-     $ repo init -u https://git.tizen.org/cgit/scm/manifest -b tizen_3.0 -m wearable_emulator-circle.xml
-     ```
-
-   - Tizen 3.0 IVI /arm
-
-     ```
-     $ repo init -u https://git.tizen.org/cgit/scm/manifest -b tizen_3.0 -m ivi_arm.xml
-     ```
 
 3. Replace the remote 'fetch url' in the `_remote.xml` file by executing the following command:
 
@@ -331,13 +151,12 @@ To clone the latest sources of all projects over HTTPS:
 
    This changes the 'fetch url' from `fetch="ssh://review.tizen.org/"` to `fetch="https://git.tizen.org/cgit/"`.
 
-4. Clone the specific snapshot source of all projects over HTTPS (optional).
+4. **(optional)** Clone the specific snapshot source of all projects over HTTPS.
 
    Replace the latest manifest with a snapshot manifest and make proper modifications by executing the following commands, as appropriate:
 
    ```
    $ wget <Snapshot_Manifest_URL> -O .repo/manifests/<profile>/<repository>/projects.xml
-   $ sed -i '3,4d' .repo/manifests/<profile>/<repository>/projects.xml
    ```
 
    > **Note**
@@ -362,7 +181,7 @@ For example:
 
 ```
 $ cd <Tizen_Project>
-$ gbs build -A i586 --threads=4 --clean-once
+$ gbs build -A armv7l --threads=4 --clean-once
 ```
 
 > **Note**
@@ -371,6 +190,8 @@ $ gbs build -A i586 --threads=4 --clean-once
 >
 > - `.gbs.conf`: `~/<Tizen_Project>/.gbs.conf`
 > - `build.conf`: `~/<Tizen_Project>/scm/meta/build-config/<Tizen version>/<profile>/<repository>_build.conf`
+>
+> If you want to increase build speed, please check [Development Tips](./tips.md)
 
 ## GBS Build Concepts
 The following build concepts help you understand the full build commands:

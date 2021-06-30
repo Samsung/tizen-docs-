@@ -33,7 +33,7 @@ To submit a patch to Gerrit:
    >
    > Valid values for `<remote_branch_name>` are:
    > - `tizen`: corresponds to the branch of the latest Tizen version
-   > - `tizen_3.0`: corresponds to the Tizen 3.0 branch
+   > - `tizen_<Version>`: corresponds to the Tizen <Version> branch
 
 For more information, see [Gerrit Documentation](https://review.tizen.org/gerrit/Documentation/index.html).
 
