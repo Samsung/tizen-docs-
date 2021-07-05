@@ -1040,6 +1040,10 @@
 ### [Configure the Package Manager](/application/tizen-studio/setup/advanced-configuration.md)
 ### [Uninstall Tizen Studio](/application/tizen-studio/setup/uninstall-sdk.md)
 
+## Quick Start 
+### [Wearable](/application/tizen-studio/quick-start/qwearable.md)
+### [TV](/application/tizen-studio/quick-start/qtv.md)
+
 
 ## Native Tools
 
@@ -1177,6 +1181,9 @@
 ## Tizen RT
 
 ### [Overview](/application/tizen-studio/rt-ide/overview.md)
+
+## [Troubleshooting](/application/tizen-studio/troubleshooting/troubleshooting.md)
+## [FAQs](/application/tizen-studio/faq/faq.md)
 
 ## Release Notes
 ### [4.1.1 (June 24, 2021)](/application/tizen-studio/release-notes/4-1-1-release-notes.md)
